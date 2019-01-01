@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<title>Restaurant</title>
+<style>
+#div_resume {
+  background-color:#6699FF; 
+  border: 2px solid; 
+  padding: 5px;
+}
+</style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="bootstrap-datepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="bootstrap-datepicker.css" >
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+
+</head>
+
+<body>
+    
+
+<h1>Commandez votre table </h1>
+<p>Ce formulaire permet de commander une table dans notre restaurant, ensuite vous pouvez commande vos plats. Il faudra aussi indiquer vos coordonnes et dans le cas de plusieurs personne, indiquer le nom de chacun d'entre eux.</p>
+<form id="formulaire" name="formulaire" method="post" action="" onsubmit="reservation()">
+  Table pour combien de personnes ? 
+    <select name="nombre" id="nombre">
+      <option value="-1">--Veuillez choisir---</option>
+      <option value="1">Une place</option>
+      <option value="2">Deux places</option>
+      <option value="4">4 places</option>
+      <option value="6">6 places</option>
+    </select>
+    <br />
+    <div id="chaises"></div>
+    <br />
+
+<div class="container">
+
+  <div class="dates">
+    <label>A quelle date vous allez venir ? 
+    </label>
+    <input type="text" style="width:200px;background-color:red" class="form-control" id="usr1" name="event_date" placeholder="YYYY-MM-DD" autocomplete="off" >
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<h2>Vos coordonnes</h2>
+Civilite : 
+<input name="civilite" type="radio" value="mme" />
+Madamme 
+<input name="civilite" type="radio" value="mlle" />
+Mademoiselle 
+<input name="civilite" type="radio" value="m" />
+Monsieur 
+<br />
+Nom et prenom  : 
+  <input name="nom" type="text" id="nom" size="60" />
+
+<br />
+Numero de telephone : 
+<input name="numero" type="text" id="numero" />
+<br />
+<div id="div_accompagnateurs">Liste des accompagnateurs (une personne par ligne):
+  <br />
+  <textarea name="accompagnateurs" cols="60" rows="4" id="accompagnateurs"></textarea>
+  <br />
+</div>
+
+
+<hr />
+
+
+
+<h2>Que voulez-vous manger ?  </h2>
+<label>
+<input name="cmd" type="checkbox" value="Salade" data-prix="5" />
+Salade</label>
+<label> <br />
+<input name="cmd" type="checkbox" value="Soupe" data-prix="2.5" />
+Soupe </label>
+<br />
+<label>
+<input name="cmd" type="checkbox" value="Couscous" data-prix="15.5" />
+Couscous</label>
+<br />
+<label>
+<input name="cmd" type="checkbox" value="Riz" data-prix="12" />
+Riz</label>
+<br />
+<label>
+<input name="cmd" type="checkbox" value="Fruits" data-prix="7" />
+Fruits </label>
+<label> <br />
+<input name="cmd" type="checkbox" value="Gateaux" data-prix="6.4" />
+Gateaux</label>
+<hr /> 
+
+  <br />
+  <input name="b1" type="button" id="b1" value="Valider ma commande" onclick="reservation()"/>
+  <br />
+  <br />
+
+  <div id="div_resume">
+    Afficher le resume ici ...
+  </div>
+  <p>&nbsp;</p>
+</form>
+
+</body>
+
+<script>
+
+function reservation() {
+
+var chaise = document.getElementById("nombre").value;
+  
+
+
+
+  var x = document.forms["form1"]["nom"].value;
+  if (x == "") {
+    alert("entrer votre nom");
+    console.log("done");
+  }
+  else if(x.length < 10)
+  {
+    alert("minimum 10 caractères");
+  }
+
+  var numero = document.forms["form1"]["numero"].value;
+  if (numero == "") {
+    alert("entrer votre numero de telephone");
+    console.log("done number");
+  }
+  else if(numero.length<8)
+  {
+    alert("donner un numero superieure a 8");
+  }
+  else{
+    console.log("done number");
+
+  }
+
+
+
+  
+  }
+
+
+
+
+      
+      
+  
+
+
+var date= document.forms["formulaire"]["event_date"].value;
+  
+
+</script>
+
+</html>
